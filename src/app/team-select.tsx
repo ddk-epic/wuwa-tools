@@ -8,7 +8,7 @@ import {
 
 function CharacterSelect() {
   return (
-    <Card className="w-1/3">
+    <Card className="w-1/4">
       <CardContent className="space-y-2">
         <p className="pb-6">Team Data</p>
         {/* Weapon */}
