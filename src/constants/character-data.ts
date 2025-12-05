@@ -6,7 +6,7 @@ export const charConstantData: Record<string, CharacterConstants> = {
     name: "Camellya",
     weaponType: "Sword",
     weapon: "Red Spring",
-    echo: "Nightmare: Crownless",
+    echo: "Crownless (NM)",
     baseHp: 826,
     baseAtk: 36,
     baseDef: 95,

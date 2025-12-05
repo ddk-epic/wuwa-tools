@@ -6,7 +6,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-function CharacterSelect() {
+function TeamSelect() {
   return (
     <Card className="w-1/4">
       <CardContent className="space-y-2">
@@ -43,4 +43,4 @@ function CharacterSelect() {
   );
 }
 
-export default CharacterSelect;
+export default TeamSelect;
