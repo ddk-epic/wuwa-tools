@@ -1,4 +1,21 @@
-import { CharacterConstants } from "./types";
+import { CharacterConstants, CharacterProfile, GearBonus } from "./types";
+
+export const bonusSchema: GearBonus = {
+  hp: 0,
+  hpFlat: 0,
+  atk: 0,
+  atkFlat: 0,
+  def: 0,
+  defFlat: 0,
+  critRate: 0,
+  critDamage: 0,
+  energyRegen: 0,
+  basicBonus: 0,
+  skillBonus: 0,
+  heavyBonus: 0,
+  liberationBonus: 0,
+  elementBonus: 0,
+};
 
 export const charConstantData: Record<string, CharacterConstants> = {
   camellya: {
@@ -65,4 +82,24 @@ export const charConstantData: Record<string, CharacterConstants> = {
     maxForte: 5,
     maxForte2: 0,
   },
+};
+
+export const charStatData: CharacterProfile = {
+  name: "string",
+  image: "/favicon.ico",
+  sequence: "string",
+  weapon: "string",
+  weaponRank: 0,
+  echo: "string",
+  hp: 0,
+  atk: 0,
+  def: 0,
+  critRate: 0,
+  critDamage: 0,
+  energyRegen: 0,
+  basicBonus: 0,
+  skillBonus: 0,
+  heavyBonus: 0,
+  liberationBonus: 0,
+  elementBonus: 0,
 };
