@@ -46,11 +46,12 @@ export type CharacterStats = {
   elementBonus: number;
 };
 
-export type CharacterProfile = CharacterStats & {
+export type CharacterProfile = {
   name: string;
   image: string;
   sequence: string;
   weapon: string;
   weaponRank: number;
   echo: string;
+  bonus: GearBonus;
 };

@@ -20,6 +20,9 @@ const characterProfileDefault = {
 };
 
 function TeamProfile() {
+  const [selectTeam, setTeam] = useState<
+    [string, string, string]
+  >(["", "", ""]);
   const [bonusStats, SetBonusStats] =
     useState<Record<string, CharacterStats | null>>(characterStatDefault);
   const [teamProfile, SetTeamProfile] = useState<
@@ -28,7 +31,7 @@ function TeamProfile() {
 
   return (
     <div className="flex gap-6">
-      <TeamSelect />
+      <TeamSelect team={selectTeam} setTeam={setTeam} />
       <TeamDisplay stats={teamProfile} />
     </div>
   );

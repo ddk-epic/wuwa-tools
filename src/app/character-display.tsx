@@ -34,15 +34,15 @@ function Character({ character }: CharacterProps) {
           {character?.echo.length >= 16 ? "" : <br />}
           <div className="flex">
             <div className="w-full">HP</div>
-            <div className={`w-full text-right`}>{character?.hp}</div>
+            <div className={`w-full text-right`}>{character?.bonus.hp}</div>
           </div>
           <div className="flex">
             <div className="w-full">ATK</div>
-            <div className={`w-full text-right`}>{character?.atk}</div>
+            <div className={`w-full text-right`}>{character?.bonus.atk}</div>
           </div>
           <div className="flex">
             <div className="w-full">DEF</div>
-            <div className={`w-full text-right`}>{character?.def}</div>
+            <div className={`w-full text-right`}>{character?.bonus.def}</div>
           </div>
           <div className="flex">
             <div className="w-full">Energy Regen</div>
@@ -80,7 +80,7 @@ function Character({ character }: CharacterProps) {
           </div>
         </div>
       ) : (
-        "empty"
+        <div className="border"></div>
       )}
     </div>
   );
