@@ -7,7 +7,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { charConstantData } from "../constants/character-data";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
@@ -16,26 +15,39 @@ import {
 } from "@/components/ui/popover";
 import { Dispatch, SetStateAction } from "react";
 
+import { CharacterProfile } from "@/constants/types";
+import { charConstantData, charStatData } from "../constants/character-data";
+
 interface TeamSelectProps {
-  team: [string, string, string];
-  setTeam: Dispatch<SetStateAction<[string, string, string]>>;
+  team: string[];
+  setTeam: Dispatch<SetStateAction<string[]>>;
+  setTeamProfile: Dispatch<SetStateAction<(CharacterProfile | null)[]>>;
 }
 
-function TeamSelect({ team, setTeam }: TeamSelectProps) {
+function TeamSelect({ team, setTeam, setTeamProfile }: TeamSelectProps) {
   const handleChange = (selectId: number, value: string) => {
-    setTeam((prevState) => ({
-      ...prevState,
-      [selectId]: value,
-    }));
+    setTeam((prevState) => {
+      const newTeam = [...prevState];
+      newTeam[selectId] = value;
+      return newTeam;
+    });
+    setTeamProfile((prevState) => {
+      const newTeamProfile = [...prevState];
+      newTeamProfile[selectId] = charStatData;
+      return newTeamProfile;
+    });
   };
+
   return (
     <Card className="w-1/4">
       <CardContent className="space-y-2">
         <p className="pb-6">Team Data</p>
         <div className="pb-6">
-          <div>1: {team[0]}</div>
-          <div>2: {team[1]}</div>
-          <div>3: {team[2]}</div>
+          {team.map((value, index) => (
+            <div key={index}>
+              {index + 1}: {value}
+            </div>
+          ))}
         </div>
         {/* Character */}
         <Popover>
@@ -45,7 +57,7 @@ function TeamSelect({ team, setTeam }: TeamSelectProps) {
             </Button>
           </PopoverTrigger>
           <PopoverContent className="min-w-150" side="right" align="start">
-            <div className="flex space-x-2">
+            <div className="flex space-x-4">
               {/* Character 1 */}
               <Select
                 value={team[0]}
