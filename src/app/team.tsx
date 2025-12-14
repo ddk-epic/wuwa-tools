@@ -4,16 +4,11 @@ import { useState } from "react";
 import TeamDisplay from "./team-display";
 import TeamSelect from "./team-select";
 
-import { Character, CharacterConstants, GearBonus } from "@/constants/types";
-import {
-  bonusSchema,
-  charConstantData,
-} from "@/constants/character-data";
+import { Character, GearBonus } from "@/constants/types";
+import { bonusSchema, charConstantData } from "@/constants/character-data";
 
 function TeamProfile() {
-  const [teamSelection, setTeamSelection] = useState<
-    (CharacterConstants | null)[]
-  >([null, null, null]);
+  const [teamSelection, setTeamSelection] = useState<string[]>(["", "", ""]);
   const [bonusStats, setBonusStats] = useState<GearBonus[]>([
     bonusSchema,
     bonusSchema,
@@ -25,7 +20,7 @@ function TeamProfile() {
     // update
     setTeamSelection((prevState) => {
       const newTeam = [...prevState];
-      newTeam[selectId] = charConstantData[characterName.toLowerCase()];
+      newTeam[selectId] = characterName;
       return newTeam;
     });
     // calculate

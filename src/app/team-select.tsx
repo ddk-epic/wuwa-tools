@@ -14,10 +14,9 @@ import {
 } from "@/components/ui/popover";
 
 import { charConstantData } from "../constants/character-data";
-import { CharacterConstants } from "@/constants/types";
 
 interface TeamSelectProps {
-  team: (CharacterConstants | null)[];
+  team: string[];
   calculate: (selectId: number, characterName: string) => void;
 }
 
@@ -29,7 +28,7 @@ function TeamSelect({ team, calculate }: TeamSelectProps) {
         <div className="pb-6">
           {team.map((character, index) => (
             <div key={index}>
-              {index + 1}: {character?.name}
+              {index + 1}: {character}
             </div>
           ))}
         </div>
@@ -44,7 +43,7 @@ function TeamSelect({ team, calculate }: TeamSelectProps) {
             <div className="flex space-x-4">
               {/* Character 1 */}
               <Select
-                value={team[0]?.name}
+                value={team[0]}
                 onValueChange={(value) => calculate(0, value)}
               >
                 <SelectTrigger className="w-full">
@@ -60,7 +59,7 @@ function TeamSelect({ team, calculate }: TeamSelectProps) {
               </Select>
               {/* Character 2 */}
               <Select
-                value={team[1]?.name}
+                value={team[1]}
                 onValueChange={(value) => calculate(1, value)}
               >
                 <SelectTrigger className="w-full">
@@ -76,7 +75,7 @@ function TeamSelect({ team, calculate }: TeamSelectProps) {
               </Select>
               {/* Character 3 */}
               <Select
-                value={team[2]?.name}
+                value={team[2]}
                 onValueChange={(value) => calculate(2, value)}
               >
                 <SelectTrigger className="w-full">
