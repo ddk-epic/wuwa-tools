@@ -1,4 +1,9 @@
-import { CharacterConstants, CharacterProfile, GearBonus } from "./types";
+import {
+  Character,
+  CharacterConstants,
+  CharacterProfile,
+  GearBonus,
+} from "./types";
 
 export const charConstantData: Record<string, CharacterConstants> = {
   camellya: {
@@ -67,68 +72,50 @@ export const charConstantData: Record<string, CharacterConstants> = {
   },
 };
 export const bonusSchema: GearBonus = {
+  // 43311 (cDmg)
   hp: 0,
-  hpFlat: 0,
-  atk: 0,
-  atkFlat: 0,
+  hpFlat: 4560,
+  atk: 0.184,
+  atkFlat: 350,
   def: 0,
   defFlat: 0,
-  critRate: 0,
-  critDamage: 0,
+  critRate: 0.405,
+  critDamage: 0.81 + 0.44,
   energyRegen: 0,
-  basicBonus: 0,
-  skillBonus: 0,
-  heavyBonus: 0,
-  liberationBonus: 0,
-  elementBonus: 0,
+  basic: 0.184,
+  skill: 0,
+  heavy: 0,
+  liberation: 0,
+  element: 0,
 };
 
 export const charInputData: CharacterProfile = {
   name: "string",
   image: "/favicon.ico",
-  sequence: "string",
+  sequence: 0,
   weapon: "string",
-  weaponRank: 0,
+  weaponRank: 1,
   echo: "string",
-  bonus: {
-  hp: 0,
-  hpFlat: 0,
-  atk: 0,
-  atkFlat: 0,
-  def: 0,
-  defFlat: 0,
-  critRate: 0,
-  critDamage: 0,
-  energyRegen: 0,
-  basicBonus: 0,
-  skillBonus: 0,
-  heavyBonus: 0,
-  liberationBonus: 0,
-  elementBonus: 0,
-  },
 };
 
-export const charStatData: CharacterProfile = {
+export const charStatData: Character = {
   name: "string",
   image: "/favicon.ico",
-  sequence: "string",
+  sequence: 0,
   weapon: "string",
-  weaponRank: 0,
+  weaponRank: 1,
   echo: "string",
-  bonus: {
-  hp: 0,
-  hpFlat: 0,
-  atk: 0,
-  atkFlat: 0,
-  def: 0,
-  defFlat: 0,
-  critRate: 0,
-  critDamage: 0,
-  energyRegen: 0,
-  basicBonus: 0,
-  skillBonus: 0,
-  heavyBonus: 0,
-  liberationBonus: 0,
-  elementBonus: 0,
+  stats: {
+    hp: 0,
+    atk: 0,
+    def: 0,
+    critRate: 0,
+    critDamage: 0,
+    energyRegen: 0,
+    basic: 0,
+    skill: 0,
+    heavy: 0,
+    liberation: 0,
+    element: 0,
   },
 };

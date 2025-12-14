@@ -13,39 +13,24 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
-import { Dispatch, SetStateAction } from "react";
 
-import { CharacterProfile } from "@/constants/types";
-import { charConstantData, charStatData } from "../constants/character-data";
+import { charConstantData } from "../constants/character-data";
+import { CharacterConstants } from "@/constants/types";
 
 interface TeamSelectProps {
-  team: string[];
-  setTeam: Dispatch<SetStateAction<string[]>>;
-  setTeamProfile: Dispatch<SetStateAction<(CharacterProfile | null)[]>>;
+  team: (CharacterConstants | null)[];
+  calculate: (selectId: number, characterName: string) => void;
 }
 
-function TeamSelect({ team, setTeam, setTeamProfile }: TeamSelectProps) {
-  const handleChange = (selectId: number, value: string) => {
-    setTeam((prevState) => {
-      const newTeam = [...prevState];
-      newTeam[selectId] = value;
-      return newTeam;
-    });
-    setTeamProfile((prevState) => {
-      const newTeamProfile = [...prevState];
-      newTeamProfile[selectId] = charStatData;
-      return newTeamProfile;
-    });
-  };
-
+function TeamSelect({ team, calculate }: TeamSelectProps) {
   return (
     <Card className="w-1/4">
       <CardContent className="space-y-2">
         <p className="pb-6">Team Data</p>
         <div className="pb-6">
-          {team.map((value, index) => (
+          {team.map((character, index) => (
             <div key={index}>
-              {index + 1}: {value}
+              {index + 1}: {character?.name}
             </div>
           ))}
         </div>
@@ -60,8 +45,8 @@ function TeamSelect({ team, setTeam, setTeamProfile }: TeamSelectProps) {
             <div className="flex space-x-4">
               {/* Character 1 */}
               <Select
-                value={team[0]}
-                onValueChange={(value) => handleChange(0, value)}
+                value={team[0]?.name}
+                onValueChange={(value) => calculate(0, value)}
               >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Character" />
@@ -76,8 +61,8 @@ function TeamSelect({ team, setTeam, setTeamProfile }: TeamSelectProps) {
               </Select>
               {/* Character 2 */}
               <Select
-                value={team[1]}
-                onValueChange={(value) => handleChange(1, value)}
+                value={team[1]?.name}
+                onValueChange={(value) => calculate(1, value)}
               >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Character" />
@@ -92,8 +77,8 @@ function TeamSelect({ team, setTeam, setTeamProfile }: TeamSelectProps) {
               </Select>
               {/* Character 3 */}
               <Select
-                value={team[2]}
-                onValueChange={(value) => handleChange(2, value)}
+                value={team[2]?.name}
+                onValueChange={(value) => calculate(2, value)}
               >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Character" />

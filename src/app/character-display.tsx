@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { CharacterProfile } from "@/constants/types";
+import type { Character } from "@/constants/types";
+import { toPercentage } from "@/lib/utils";
 
 interface CharacterProps {
-  character: CharacterProfile | null;
+  character: Character | null;
 }
 
 function Character({ character }: CharacterProps) {
@@ -34,49 +35,65 @@ function Character({ character }: CharacterProps) {
           {character?.echo.length >= 16 ? "" : <br />}
           <div className="flex">
             <div className="w-full">HP</div>
-            <div className={`w-full text-right`}>{character?.bonus.hp}</div>
+            <div className={`w-full text-right`}>{character?.stats.hp}</div>
           </div>
           <div className="flex">
             <div className="w-full">ATK</div>
-            <div className={`w-full text-right`}>{character?.bonus.atk}</div>
+            <div className={`w-full text-right`}>{character?.stats.atk}</div>
           </div>
           <div className="flex">
             <div className="w-full">DEF</div>
-            <div className={`w-full text-right`}>{character?.bonus.def}</div>
+            <div className={`w-full text-right`}>{character?.stats.def}</div>
           </div>
           <div className="flex">
             <div className="w-full">Energy Regen</div>
-            <div className={`w-full text-right`}>100.0%</div>
+            <div className={`w-full text-right`}>
+              {toPercentage(character?.stats.energyRegen)}
+            </div>
           </div>
           <div className="flex">
             <div className="w-full">Crit. Rate</div>
-            <div className={`w-full text-right`}>5.0%</div>
+            <div className={`w-full text-right`}>
+              {toPercentage(character?.stats.critRate)}
+            </div>
           </div>
           <div className="flex">
             <div className="w-full">Crit. DMG</div>
-            <div className={`w-full text-right`}>150.0%</div>
+            <div className={`w-full text-right`}>
+              {toPercentage(character?.stats.critDamage)}
+            </div>
           </div>
           <br />
           {/* Bonuses */}
           <div className="flex">
             <div className="w-full">Basic DMG</div>
-            <div className={`w-full text-right`}>0.0%</div>
+            <div className={`w-full text-right`}>
+              {toPercentage(character?.stats.basic)}
+            </div>
           </div>
           <div className="flex">
             <div className="w-full">Skill DMG</div>
-            <div className={`w-full text-right`}>0.0%</div>
+            <div className={`w-full text-right`}>
+              {toPercentage(character?.stats.skill)}
+            </div>
           </div>
           <div className="flex">
             <div className="w-full">Heavy DMG</div>
-            <div className={`w-full text-right`}>0.0%</div>
+            <div className={`w-full text-right`}>
+              {toPercentage(character?.stats.heavy)}
+            </div>
           </div>
           <div className="flex">
             <div className="w-full">Liberation DMG</div>
-            <div className={`w-full text-right`}>0.0%</div>
+            <div className={`w-full text-right`}>
+              {toPercentage(character?.stats.liberation)}
+            </div>
           </div>
           <div className="flex">
             <div className="w-full">Same Type DMG</div>
-            <div className={`w-full text-right`}>0.0%</div>
+            <div className={`w-full text-right`}>
+              {toPercentage(character?.stats.element)}
+            </div>
           </div>
         </div>
       ) : (

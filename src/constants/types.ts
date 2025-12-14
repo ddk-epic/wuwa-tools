@@ -25,11 +25,11 @@ export type GearBonus = {
   critRate: number;
   critDamage: number;
   energyRegen: number;
-  basicBonus: number;
-  skillBonus: number;
-  heavyBonus: number;
-  liberationBonus: number;
-  elementBonus: number;
+  basic: number;
+  skill: number;
+  heavy: number;
+  liberation: number;
+  element: number;
 };
 
 export type CharacterStats = {
@@ -39,19 +39,34 @@ export type CharacterStats = {
   critRate: number;
   critDamage: number;
   energyRegen: number;
-  basicBonus: number;
-  skillBonus: number;
-  heavyBonus: number;
-  liberationBonus: number;
-  elementBonus: number;
+  basic: number;
+  skill: number;
+  heavy: number;
+  liberation: number;
+  element: number;
 };
 
 export type CharacterProfile = {
   name: string;
   image: string;
-  sequence: string;
+  sequence: number;
   weapon: string;
   weaponRank: number;
   echo: string;
-  bonus: GearBonus;
+};
+
+export type Character = CharacterProfile & {
+  stats: {
+    hp: number;
+    atk: number;
+    def: number;
+    critRate: number;
+    critDamage: number;
+    energyRegen: number;
+    basic: number;
+    skill: number;
+    heavy: number;
+    liberation: number;
+    element: number;
+  };
 };

@@ -1,21 +1,21 @@
 import { Card, CardContent } from "../components/ui/card";
 import CharacterDisplay from "./character-display";
 
-import { CharacterProfile } from "@/constants/types";
+import { Character } from "@/constants/types";
 
 interface TeamDisplayProps {
-  teamStats: (CharacterProfile | null)[];
+  team: (Character | null)[];
 }
 
-function TeamDisplay({ teamStats }: TeamDisplayProps) {
+function TeamDisplay({ team }: TeamDisplayProps) {
   return (
     <Card className="w-3/4">
       <CardContent>
         <p className="pb-6">Team Profile</p>
         <div className="flex">
-          <CharacterDisplay character={teamStats[0]} />
-          <CharacterDisplay character={teamStats[1]} />
-          <CharacterDisplay character={teamStats[2]} />
+          <CharacterDisplay character={team[0]} />
+          <CharacterDisplay character={team[1]} />
+          <CharacterDisplay character={team[2]} />
         </div>
       </CardContent>
     </Card>
