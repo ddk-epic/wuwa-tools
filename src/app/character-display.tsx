@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import type { Character } from "@/constants/types";
 import { toPercentage } from "@/lib/utils";
 

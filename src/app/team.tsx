@@ -8,9 +8,7 @@ import { Character, CharacterConstants, GearBonus } from "@/constants/types";
 import {
   bonusSchema,
   charConstantData,
-  charStatData,
 } from "@/constants/character-data";
-import image from "next/image";
 
 function TeamProfile() {
   const [teamSelection, setTeamSelection] = useState<
