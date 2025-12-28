@@ -38,7 +38,7 @@ function TeamProfile() {
         atk: charConst.baseAtk * 12.5 + bonusStats[selectId].atkFlat,
         def: charConst.baseDef * 12.5 + bonusStats[selectId].defFlat,
         critRate: 0.05 + bonusStats[selectId].critRate,
-        critDamage: 1.5 + bonusStats[selectId].critRate,
+        critDamage: 1.5 + bonusStats[selectId].critDamage,
         energyRegen: 1 + bonusStats[selectId].energyRegen,
 
         basic: bonusStats[selectId].basic,

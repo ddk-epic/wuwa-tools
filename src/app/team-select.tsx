@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import {
   Select,
@@ -7,14 +6,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-} from "@/components/ui/popover";
+import { Separator } from "@/components/ui/separator";
 
 import { charConstantData } from "../constants/character-data";
-import { Separator } from "@/components/ui/separator";
+import CharacterSetting from "./character-setting";
 
 interface TeamSelectProps {
   team: string[];
@@ -26,7 +21,7 @@ function TeamSelect({ team, calculate }: TeamSelectProps) {
     <Card className="w-1/4">
       <CardContent className="space-y-4">
         <p className="pb-6">Team Data</p>
-        {/* Character */}
+        {/* Character Select */}
         <div className="space-y-1">
           {/* Character 1 */}
           <div className="flex gap-2">
@@ -88,15 +83,15 @@ function TeamSelect({ team, calculate }: TeamSelectProps) {
         </div>
         <Separator />
 
-        {/* Position */}
-        {/* <Select>
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder="Position" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="DPS">DPS</SelectItem>
-          </SelectContent>
-        </Select> */}
+        {/* Settings */}
+        <div className="space-y-1">
+          {/* Character 1 */}
+          {team[0] && <CharacterSetting character={team[0]} />}
+          {/* Character 2 */}
+          {team[1] && <CharacterSetting character={team[1]} />}
+          {/* Character 3 */}
+          {team[2] && <CharacterSetting character={team[2]} />}
+        </div>
       </CardContent>
     </Card>
   );

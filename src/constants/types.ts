@@ -15,6 +15,16 @@ export type CharacterConstants = {
   maxForte2: number;
 };
 
+export type Weapon = {
+  name: string;
+  type: string;
+  rarity: string;
+  attack: number;
+  mainStat: string;
+  mainStatAmount: number;
+  buff: string;
+}
+
 export type GearBonus = {
   hp: number;
   hpFlat: number;

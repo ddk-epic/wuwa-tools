@@ -71,6 +71,7 @@ export const charConstantData: Record<string, CharacterConstants> = {
     maxForte2: 0,
   },
 };
+
 export const bonusSchema: GearBonus = {
   // 43311 (cDmg)
   hp: 0,
